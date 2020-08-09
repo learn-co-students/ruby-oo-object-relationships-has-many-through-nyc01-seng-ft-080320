@@ -28,7 +28,17 @@ class Waiter
         best_tipped_meal.customer
     end
 
+    def frequent_customer
+        #creat hash and count number of customer name occurance
+        customer_count = Hash.new(0)
+        Meal.all.each {|meal| customer_count[meal.customer.name] += 1}
+        #Sort and selete greatest value
+        customer_count.sort_by { |customer,number| number}.last[0]
+    end
+
     def self.all
         @@all
     end
+    
+    
 end
