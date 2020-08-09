@@ -350,6 +350,7 @@ waiter.
 ## Conclusion
 
 Why associate customers to waiter objects _through_ meals? By associating meals
+
 to waiters, we are not only reflecting the real-world situation that our program
 is meant to model, but we are also creating clean and re-usable code. Each class
 only knows about what they specifically need to know about, and we create a
