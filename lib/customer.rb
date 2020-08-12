@@ -9,7 +9,17 @@ class Customer
   def self.all
     @@all
   end
-  def new_meal(meal)
-    self.meal = Meal.new
+  def new_meal(waiter, total, tip)
+    meal = Meal.new(waiter, self, total, tip)
+  end
+  def meals
+    Meal.all.select do |meal|
+        meal.customer == self
+    end
+  end
+  def waiters
+    self.meals.map do |meal|
+      meal.waiter
+    end
   end
 end
